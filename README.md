@@ -23,6 +23,7 @@ Node – 主要工作的節點，上面運行了許多容器。可想作一台�
 masters和nodes組成叢集(Clusters)
 ![alt text](k8s_arch.png "K8S Architecture")
 Master 包含了三個基本組件 Etcd, API Server, Controller Manager Server。
+
 Server Node 包含了四個基本組件 Kubelet, Proxy, Pod, Container。
 
 
