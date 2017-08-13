@@ -23,10 +23,26 @@ Node – 主要工作的節點，上面運行了許多容器。可想作一台�
 masters和nodes組成叢集(Clusters)
 ![alt text](k8s_arch.png "K8S Architecture")
 Master 包含了三個基本組件 Etcd, API Server, Controller Manager Server。
-
 Server Node 包含了四個基本組件 Kubelet, Proxy, Pod, Container。
 
+## Pod
+* 容器是位於pod內部，一個pod包覆著一個以上的容器，這造成K8S與一般容器不同的操作概念
+* 在Docker裡，Docker container是最小單位，但在K8S可想作pod為最小單位
+* Pod 擁有不確定的生命週期，這意味著您不曉得任一pod是否會永久保留
+* Pod 內有一個讓所有container共用的Volume，這會與Docker不同
+* Pod 採取shared IP，內部所有的容器皆使用同一個Pod IP，這也與Docker不同
+* Pod 內的眾多容器都會和Pod同生共死，就像桃園三結義一樣！
 
+## Service
+* 每個Service包含著一個以上的pod
+* 每個Service有個獨立且固定的IP地址 – Cluster IP
+* 客戶端訪問Service時，會經由上述提過的proxy來達到負載平衡、與各pod連結的結果
+* 利用標籤選擇器(Label Selector)，聰明地選擇那些已貼上標籤的pod
 
-
+## Deployments
+* 舊版的K8S使用了副本控制器(Replication Controller)的名詞，在新版已經改成 Deployments。
+* Deployments顧名思義掌控了部署Kubernetes服務的一切。它主要掌管了Replica Set的個數，而Replica Set的組成就是一個以上的Pod
+* Deployments的設定檔(底下以YAML格式為例)，可以指定replica，並保證在該replica的數量運作
+* Deployments會檢查pod的狀態
+* Deployments下可執行滾動更新或者回滾
 
