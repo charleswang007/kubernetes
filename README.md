@@ -83,6 +83,14 @@ Kubernetes 最主要的三個構成要素，分別是 Pod、Replication Controll
 * Service：對外的窗口，其實就是一個負載平衡器，將外部流量導向至Pod
 ![alt text](k8s-architecture.png "K8S Architecture")
 
+## Kubernetes 安裝
+K8s Cluster 安裝分幾種選擇：
+* 全自動 (GKE): Master / Worker Nodes 安裝都不用管，連升級 K8s 版本都不用管
+* 自動 (EKS): Master Node 由 AWS 管理，使用者自行用 CloudFormation 管理 Worker Nodes
+* 半自動 (kops): Master / Worker Nodes 都自己裝，除了這些，也包含網路規劃、權限等
+* 半手動 (kubeadm): 從 VM / Machine 開始就要自己來
+* 全手動: 全都自己來
+
 ## References
 [K8s 架構介紹](https://blog.toright.com/posts/6416/kubernetes-intro.html)
 
@@ -91,3 +99,5 @@ Kubernetes 最主要的三個構成要素，分別是 Pod、Replication Controll
 [Kubernetes Playground](https://www.katacoda.com/courses/kubernetes/playground)
 
 [Kubernetes Lab](https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-interactive/)
+
+[為什麼使用 Kubernetes](https://blog.gcp.expert/kubernetes-gke-introduction/)
