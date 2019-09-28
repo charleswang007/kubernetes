@@ -34,7 +34,14 @@ Master 包含了三個基本組件 Etcd, API Server, Controller Manager Server�
 Server Node 包含了四個基本組件 Kubelet, Proxy, Pod, Container。
 
 ![alt text](k8s_arch.png "K8S Architecture")
+
+Kubernates Cloud Controller Manager (CCM) 標準的架構圖，主要說明透過  Google Cloud 運作 K8s 的架構，對於自己透過實體機或 VM 架設整個 K8s Cluster 概念也是一樣的。
+
 ![alt text](k8s-arch.png "K8S Architecture")
+
+Kubelet 安裝於每一個 Node 上，負責與 API Server 溝通，也包含初始化並且將自己納入到整個 Cloud Cluster 的管理，Kubelet 就像是 Node 上面的 Docker 代理人，負責管理自己所分派的 Container。
+
+etcd 是一個分散式資料庫系統，由於我們的 Master Node 可以由多個節點組成，好讓某個節點發生故障的時候可以有其他 Master Node 接手管理 Container，因次透過 etcd 會隨時同步每一個 Master Node 的資料。
 
 ## Pod
 * 容器是位於 pod 內部，一個 pod 包覆著一個以上的容器，這造成 K8S 與一般容器不同的操作概念
@@ -76,3 +83,11 @@ Kubernetes 最主要的三個構成要素，分別是 Pod、Replication Controll
 * Service：對外的窗口，其實就是一個負載平衡器，將外部流量導向至Pod
 ![alt text](k8s-architecture.png "K8S Architecture")
 
+## References
+[K8s 架構介紹] (https://blog.toright.com/posts/6416/kubernetes-intro.html)
+
+[Kubernetes 元件介紹與 minikube 安裝教學](https://blog.toright.com/posts/6513/kubernetes-%E5%9F%BA%E7%A4%8E%E5%85%83%E4%BB%B6%E4%BB%8B%E7%B4%B9%E8%88%87minikube%E5%AE%89%E8%A3%9D.html)
+
+[Kubernetes Playground](https://www.katacoda.com/courses/kubernetes/playground)
+
+[Kubernetes Lab](https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-interactive/)
