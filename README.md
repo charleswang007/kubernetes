@@ -84,7 +84,7 @@ Kubernetes 最主要的三個構成要素，分別是 Pod、Replication Controll
 ![alt text](k8s-architecture.png "K8S Architecture")
 
 ## References
-[K8s 架構介紹] (https://blog.toright.com/posts/6416/kubernetes-intro.html)
+[K8s 架構介紹](https://blog.toright.com/posts/6416/kubernetes-intro.html)
 
 [Kubernetes 元件介紹與 minikube 安裝教學](https://blog.toright.com/posts/6513/kubernetes-%E5%9F%BA%E7%A4%8E%E5%85%83%E4%BB%B6%E4%BB%8B%E7%B4%B9%E8%88%87minikube%E5%AE%89%E8%A3%9D.html)
 
