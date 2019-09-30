@@ -43,6 +43,10 @@ Kubelet 安裝於每一個 Node 上，負責與 API Server 溝通，也包含初
 
 etcd 是一個分散式資料庫系統，由於我們的 Master Node 可以由多個節點組成，好讓某個節點發生故障的時候可以有其他 Master Node 接手管理 Container，因次透過 etcd 會隨時同步每一個 Master Node 的資料。
 
+![alt text](kubernetes-architecture.jpg "K8S Architecture")
+
+Kubernetes cluster 主要可以分為 Master 和 Node 兩部份，Master 負責指揮調度 Node。在 Kubernetes 世界裡，Node 上的 Pod 是運行調度的最小單位，裡面可以放多個 container（一般以有緊密相關的服務為主，同一個 Pod 共享 IP），也可以只有單個 Container，同一個 Pod 的 container 是一起被調度。而 Deployment 為管理 Pod 的 Controller，我們可以視一組 Deployment 為一組應用服務。而 Service 可以固定住我們對外服務的 IP，不會因為 Pod 關閉重啟而喪失原來的 IP 位置。
+
 ## Pod
 * 容器是位於 pod 內部，一個 pod 包覆著一個以上的容器，這造成 K8S 與一般容器不同的操作概念
 * 在 Docker 裡，Docker container 是最小單位，但在 K8S 可想作 pod 為最小單位
@@ -101,3 +105,5 @@ K8s Cluster 安裝分幾種選擇：
 [Kubernetes Lab](https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-interactive/)
 
 [為什麼使用 Kubernetes](https://blog.gcp.expert/kubernetes-gke-introduction/)
+
+[Kubernetes 與 minikube 入門教學](https://blog.techbridge.cc/2018/12/01/kubernetes101-introduction-tutorial/)
