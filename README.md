@@ -95,6 +95,26 @@ K8s Cluster 安裝分幾種選擇：
 * 半手動 (kubeadm): 從 VM / Machine 開始就要自己來
 * 全手動: 全都自己來
 
+## DaemonSet
+
+A DaemonSet ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created.
+
+Some typical uses of a DaemonSet are:
+
+..* running a cluster storage daemon, such as glusterd, ceph, on each node.
+..* running a logs collection daemon on every node, such as fluentd or logstash.
+..* running a node monitoring daemon on every node, such as Prometheus Node Exporter, Sysdig Agent, collectd, Dynatrace OneAgent, AppDynamics Agent, Datadog agent, New Relic agent, Ganglia gmond or Instana Agent.
+
+## Namespaces
+
+Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called namespaces.
+
+Namespaces are intended for use in environments with many users spread across multiple teams, or projects. For clusters with a few to tens of users, you should not need to create or think about namespaces at all. Start using namespaces when you need the features they provide.
+
+```
+kubectl get namespace
+```
+
 ## References
 [K8s 架構介紹](https://blog.toright.com/posts/6416/kubernetes-intro.html)
 
