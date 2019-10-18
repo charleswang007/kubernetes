@@ -121,6 +121,8 @@ A Service enables network access to a set of Pods in Kubernetes. Kubernetes give
 
 Services select Pods based on their labels. When a network request is made to the service, it selects all Pods in the cluster matching the service's selector, chooses one of them, and forwards the network request to it.
 
+![alt text](kubernetes-service.png "K8S service yaml")
+
 ## Service vs Deployment
 
 A deployment is responsible for keeping a set of pods running.
