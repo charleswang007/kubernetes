@@ -115,6 +115,29 @@ Namespaces are intended for use in environments with many users spread across mu
 kubectl get namespace
 ```
 
+## Service
+
+A Service enables network access to a set of Pods in Kubernetes. Kubernetes gives Pods their own IP addresses and a single DNS name for a set of Pods, and can load-balance across them.
+
+Services select Pods based on their labels. When a network request is made to the service, it selects all Pods in the cluster matching the service's selector, chooses one of them, and forwards the network request to it.
+
+## Service vs Deployment
+
+A deployment is responsible for keeping a set of pods running.
+
+A service is responsible for enabling network access to a set of pods.
+
+## ClusterIP, NodePort, and LoadBalancer
+
+The "type" property in the Service's spec determines how the service is exposed to the network. It changes where a Service is able to be accessed from. The possible types are ClusterIP, NodePort, and LoadBalancer
+
+* ClusterIP – The default value. The service is only accessible from within the Kubernetes cluster – you can’t make requests to your Pods from outside the cluster!
+
+* NodePort – This makes the service accessible on a static port on each Node in the cluster. This means that the service can handle requests that originate from outside the cluster.
+
+* LoadBalancer – The service becomes accessible externally through a cloud provider's load balancer functionality. GCP, AWS, Azure, and OpenStack offer this functionality. The cloud provider will create a load balancer, which then automatically routes requests to your Kubernetes Service
+
+
 ## References
 [K8s 架構介紹](https://blog.toright.com/posts/6416/kubernetes-intro.html)
 
